@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.test.com/appointmentapp/soapservice/xml"
+            elementFormDefault="qualified">
+
+    <xs:element name="AppointmentRequest">
+        <xs:annotation>
+            <xs:documentation>Root element for Record Appointment Request</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="doctorId" type = "xs:long"></xs:element>
+                <xs:element name="startTime" type="xs:dateTime"></xs:element>
+                <xs:element name="duration" type="xs:int"></xs:element>
+                <xs:element name="count" type="xs:int"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AppointmentResponse">
+        <xs:annotation>
+            <xs:documentation>Root element for Record Appointment Response</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type = "xs:string"></xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

@@ -1,0 +1,46 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+  info:
+    env:
+      enabled: true
+
+  application:
+    name: appointment-soap-service
+    description: A part of appointment app with soap-service
+    author: Maksim Korotkov
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5444/appointment_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  webservices:
+    servlet:
+      init:
+        enabled: true
+        transformWsdlLocations: true
+        wsdl11-definition: true
+        wsdl11-definition-location: classpath:/wsdl/appointments.wsdl
+
+  sql:
+    init:
+      mode: always
+
+server:
+  servlet:
+    context-path: /soap-api
+  port: 8082

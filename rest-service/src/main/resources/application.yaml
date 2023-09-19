@@ -1,0 +1,29 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+  info:
+    env:
+      enabled: true
+
+  application:
+    name: appointment-rest-service
+    description: A part of appointment app with rest-service
+    author: Maksim Korotkov
+
+spring:
+    datasource:
+      url: jdbc:postgresql://localhost:5444/appointment_db
+      username: postgres
+      password: postgres
+
+    sql:
+      init:
+        mode: always
+
+server:
+  servlet:
+    context-path: /rest-api
+  port: 8081
